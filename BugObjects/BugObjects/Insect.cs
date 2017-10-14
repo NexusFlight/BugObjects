@@ -17,26 +17,26 @@ namespace BugObjects
         public Insect()
         {
             //call the getPositionFromUser passing the calling object as a parameter
-            getPositionFromUser(this);
+            GetPositionFromUser(this);
         }
         
         
         //getX function this returns the X of the current object
-        public int getX()
+        public int GetX()
         {
             //return the value of X
             return X;
         }
 
         //getY function this returns the Y of the current object
-        public int getY()
+        public int GetY()
         {
             //return the value of Y
             return Y;
         }
 
         //getPositionFromUser Procedure this gets the insects current location from the user and stores it
-        private void getPositionFromUser(Insect insect)
+        private void GetPositionFromUser(Insect insect)
         {
             //prompt the user for the X coord of the current insect using {0} placeholder to display the insects Type Name
             Console.WriteLine("Please Enter The X Coordinate of your {0}. Max 100",insect.GetType().Name);

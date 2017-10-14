@@ -15,9 +15,9 @@ namespace BugObjects
             //create a foundInsects List
             IList<Insect> foundInsects = new List<Insect>();
             //call the procedure userInsects passing the parameters insectTypes and using ref to pass the memory location of the foundInsects List
-            userInsects(insectTypes, ref foundInsects);
+            UserInsects(insectTypes, ref foundInsects);
             //call the outputFoundInsects procedure passing the parameters of List<Insect> foundInsects and IList insectTypes
-            outputFoundInsects(foundInsects, insectTypes);
+            OutputFoundInsects(foundInsects, insectTypes);
         }
 
         //GetAllInsectTypes function finds all subclasses of Insect and returns it as a list
@@ -41,24 +41,24 @@ namespace BugObjects
         }
 
         //outputFoundInsects procedure this displays the insects inputted by the user back to the user
-        private static void outputFoundInsects(IList<Insect> foundInsects, IList<Type> insectTypes)
+        private static void OutputFoundInsects(IList<Insect> foundInsects, IList<Type> insectTypes)
         {
             //itterate the loop the same amount of times as there insectNames in insects
             for (int i = 0; i < insectTypes.Count; i++)
             {
-                int totalInsect = tallyInsect(foundInsects, insectTypes[i]);
+                int totalInsect = TallyInsect(foundInsects, insectTypes[i]);
                 
                 Console.WriteLine("You found {0} {1}", totalInsect, insectTypes[i].Name);
                 if (totalInsect > 0)
                 {
                     //call outputLocations passing the parrameters of Insect[] foundInsects and Insect insects.insectNames[loop index]
-                    outputLocations(foundInsects, insectTypes[i]);
+                    OutputLocations(foundInsects, insectTypes[i]);
                 }
             }
         }
 
         //outputLocations procedure this displays the selected insect X Y Coords to the user 
-        private static void outputLocations(IList<Insect> foundInsects, Type type)
+        private static void OutputLocations(IList<Insect> foundInsects, Type type)
         {
             //run through each of the locations in Insect[] foundInsects with the current location being shown as insect
             foreach (Insect insect in foundInsects)
@@ -67,13 +67,13 @@ namespace BugObjects
                 if (insect.GetType() == type)
                 {
                     //output the current insects X Y 
-                    Console.WriteLine("X {0} Y {1}", insect.getX(), insect.getY());
+                    Console.WriteLine("X {0} Y {1}", insect.GetX(), insect.GetY());
                 }
             }
         }
 
         //tallyInsect function this returns how many of one type of insect there is
-        private static byte tallyInsect(IList<Insect> foundInsects, Type type)
+        private static byte TallyInsect(IList<Insect> foundInsects, Type type)
         {
             //declare and initilize the output variable
             byte output = 0;
@@ -92,7 +92,7 @@ namespace BugObjects
         }
 
         //userInsects procedure this is where the user inputs the insects they found
-        private static void userInsects(IList<Type> insectTypes, ref IList<Insect> foundInsects)
+        private static void UserInsects(IList<Type> insectTypes, ref IList<Insect> foundInsects)
         {
             //declare and initilize variables
             int insectInput = 0;
@@ -103,7 +103,7 @@ namespace BugObjects
             for (int i = 0; i < insectTypes.Count; i++)
             {
                 //call the outputInsectMenu procedure passing the IList<Type> insectTypes and the Bool Array hasRun
-                outputInsectMenu(insectTypes, hasRun);
+                OutputInsectMenu(insectTypes, hasRun);
                 Console.WriteLine("What Insect Would like to catalog?");
                 //assign insectInput the result of the userinput Converted to a int16
                 insectInput = Convert.ToInt16(Console.ReadLine());
@@ -143,7 +143,7 @@ namespace BugObjects
                     for (int k = 0; k < insectAmount; k++)
                     {
                         //add the output of createInsect(InsectType[user inputted index])
-                        foundInsects.Add(createInsect(insectTypes[insectInput]));
+                        foundInsects.Add(CreateInsect(insectTypes[insectInput]));
                     }
                     //set the hasRun bool to true for the current insect
                     hasRun[insectInput] = true;
@@ -152,7 +152,7 @@ namespace BugObjects
         }
 
         //createInsect function this creates a new derived insect and returns it
-        public static Insect createInsect(Type type)
+        public static Insect CreateInsect(Type type)
         {
             //return a new instance of an object thats been cast to an Insect
             return (Insect)Activator.CreateInstance(type);
@@ -160,7 +160,7 @@ namespace BugObjects
 
 
         //outputInsectMenu procedure to display the insects available to catalog to the user
-        private static void outputInsectMenu(IList<Type> insectTypes, bool[] hasRun)
+        private static void OutputInsectMenu(IList<Type> insectTypes, bool[] hasRun)
         {
             //for each location in the List insectNames expose insect as the current location
             foreach (Type insect in insectTypes)
