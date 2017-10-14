@@ -14,7 +14,8 @@ namespace BugObjects
         static void Main(string[] args)
         {
             //create a new instance of InsectCatalog
-            new InsectCatalog();
+            InsectCatalog insectCatalog = new InsectCatalog();
+            insectCatalog.run();
         }
      }
 }

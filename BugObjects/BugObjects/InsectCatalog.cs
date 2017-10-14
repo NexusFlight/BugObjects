@@ -10,6 +10,11 @@ namespace BugObjects
     {
         public InsectCatalog()
         {
+            
+        }
+
+        public void run()
+        {
             //declare an IList<Type> and assign it the output of GetAllInsectTypes
             IList<Type> insectTypes = GetAllInsectTypes();
             //create a foundInsects List
