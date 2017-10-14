@@ -15,7 +15,7 @@ namespace BugObjects
         {
             //create a new instance of InsectCatalog
             InsectCatalog insectCatalog = new InsectCatalog();
-            insectCatalog.run();
+            insectCatalog.Run();
         }
      }
 }
