@@ -109,7 +109,7 @@ namespace BugObjects
             {
                 //call the outputInsectMenu procedure passing the IList<Type> insectTypes and the Bool Array hasRun
                 OutputInsectMenu(insectTypes, hasRun);
-                Console.WriteLine("What Insect Would like to catalog?");
+                Console.WriteLine("What Insect Would You Like To Catalog?");
                 //assign insectInput the result of the userinput Converted to a int16
                 insectInput = Convert.ToInt16(Console.ReadLine());
                 //if the input is equal to the last index location this is the exit command
