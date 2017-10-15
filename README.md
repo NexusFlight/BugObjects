@@ -1,2 +1,2 @@
 # BugObjects
-Insects Catalogger as objects
+Insect Catalogger as objects
