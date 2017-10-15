@@ -17,7 +17,7 @@ namespace BugObjects
         {
             //declare an IList<Type> and assign it the output of GetAllInsectTypes
             IList<Type> insectTypes = GetAllInsectTypes();
-            //create a foundInsects List
+            //create a foundInsects IList 
             IList<Insect> foundInsects = new List<Insect>();
             //call the procedure userInsects passing the parameters insectTypes and using ref to pass the memory location of the foundInsects List
             UserInsects(insectTypes, ref foundInsects);
@@ -25,7 +25,7 @@ namespace BugObjects
             OutputFoundInsects(foundInsects, insectTypes);
         }
 
-        //GetAllInsectTypes function finds all subclasses of Insect and returns it as a list
+        //GetAllInsectTypes function finds all subclasses of Insect and returns it as a Type list
         public IList<Type> GetAllInsectTypes()
         {
             //get a Type Array of all the types in the current assembly of the type Insect
@@ -48,7 +48,7 @@ namespace BugObjects
         //outputFoundInsects procedure this displays the insects inputted by the user back to the user
         private static void OutputFoundInsects(IList<Insect> foundInsects, IList<Type> insectTypes)
         {
-            //itterate the loop the same amount of times as there insectNames in insects
+            //itterate the loop the same amount of times as there insectTypes
             for (int i = 0; i < insectTypes.Count; i++)
             {
                 int totalInsect = TallyInsect(foundInsects, insectTypes[i]);
@@ -56,7 +56,7 @@ namespace BugObjects
                 Console.WriteLine("You found {0} {1}", totalInsect, insectTypes[i].Name);
                 if (totalInsect > 0)
                 {
-                    //call outputLocations passing the parrameters of Insect[] foundInsects and Insect insects.insectNames[loop index]
+                    //call outputLocations passing the parrameters of IList<Insect> foundInsects and IList<Type> insectTypes[loop index]
                     OutputLocations(foundInsects, insectTypes[i]);
                 }
             }
@@ -65,10 +65,10 @@ namespace BugObjects
         //outputLocations procedure this displays the selected insect X Y Coords to the user 
         private static void OutputLocations(IList<Insect> foundInsects, Type type)
         {
-            //run through each of the locations in Insect[] foundInsects with the current location being shown as insect
+            //run through each of the locations in IList<Insect> foundInsects with the current location being shown as insect
             foreach (Insect insect in foundInsects)
             {
-                //if the insect Type Name is equal to the type we passed into the procedure
+                //if the insect Type is equal to the type we passed into the procedure
                 if (insect.GetType() == type)
                 {
                     //output the current insects X Y 
@@ -82,10 +82,10 @@ namespace BugObjects
         {
             //declare and initilize the output variable
             byte output = 0;
-            //run through each of the locations in Insect[] foundInsects with the current location being shown as insect
+            //run through each of the locations in IList<Insect> foundInsects with the current location being shown as insect
             foreach (Insect insect in foundInsects)
             {
-                //if the insect Type Name is equal to the type we passed into the funcation
+                //if the insect Type is equal to the type we passed into the funcation
                 if (insect.GetType() == type)
                 {
                     //add to the total
@@ -147,7 +147,7 @@ namespace BugObjects
                     //itterate a loop the same amount of times as the user input insectAmount
                     for (int k = 0; k < insectAmount; k++)
                     {
-                        //add the output of createInsect(InsectType[user inputted index])
+                        //add the output of createInsect(InsectTypes[user inputted index])
                         foundInsects.Add(CreateInsect(insectTypes[insectInput]));
                     }
                     //set the hasRun bool to true for the current insect
