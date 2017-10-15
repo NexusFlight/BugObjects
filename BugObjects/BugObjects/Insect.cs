@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BugObjects
 {
+
     class Insect
     {
         //declare and initilize class variables
@@ -22,14 +23,14 @@ namespace BugObjects
         
         
         //getX function this returns the X of the current object
-        public int GetX()
+        public byte GetX()
         {
             //return the value of X
             return X;
         }
 
         //getY function this returns the Y of the current object
-        public int GetY()
+        public byte GetY()
         {
             //return the value of Y
             return Y;

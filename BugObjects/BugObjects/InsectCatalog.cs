@@ -19,9 +19,9 @@ namespace BugObjects
             IList<Type> insectTypes = GetAllInsectTypes();
             //create a foundInsects IList 
             IList<Insect> foundInsects = new List<Insect>();
-            //call the procedure userInsects passing the parameters insectTypes and using ref to pass the memory location of the foundInsects List
+            //call the procedure userInsects passing the parameters insectTypes and using ref to pass the memory location of the foundInsects IList
             UserInsects(insectTypes, ref foundInsects);
-            //call the outputFoundInsects procedure passing the parameters of List<Insect> foundInsects and IList insectTypes
+            //call the outputFoundInsects procedure passing the parameters of IList<Insect> foundInsects and IList insectTypes
             OutputFoundInsects(foundInsects, insectTypes);
         }
 
