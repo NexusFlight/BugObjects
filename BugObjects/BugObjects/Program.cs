@@ -1,6 +1,6 @@
 ﻿//Andrew Smirthwaite
 //15/10/17
-//a program to catalog bugs in a 1x1 meter square. Object Orientated Edition.
+//a program to catalog bugs in a 1x1 meter square. Object Orientated Edition. new insects can be added by adding a subclass of Insect
 using System;
 using System.Collections.Generic;
 using System.Linq;

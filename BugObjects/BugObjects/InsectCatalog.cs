@@ -8,10 +8,6 @@ namespace BugObjects
 {
     class InsectCatalog
     {
-        public InsectCatalog()
-        {
-            
-        }
 
         public void CatalogInsects()
         {
